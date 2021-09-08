@@ -3,10 +3,10 @@
   "displayName": "韭菜盒子",
   "description": "韭菜盒子，VSCode 里也可以看股票 & 基金实时数据，做最好用的投资插件",
   "version": "1.9.9",
-  "author": "giscafer <giscafer@outlook.com>",
+  "author": "AnHyun <AnHyun@outlook.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/giscafer/leek-fund.git"
+    "url": "https://github.com/AnHyun/leek-fund.git"
   },
   "license": "MIT",
   "keywords": [
@@ -39,17 +39,14 @@
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
-      "activitybar": [
-        {
-          "id": "leekFundMenu",
-          "title": "LeekFund",
-          "icon": "resources/leekfund.svg"
-        }
-      ]
+      "activitybar": [{
+        "id": "leekFundMenu",
+        "title": "LeekFund",
+        "icon": "resources/leekfund.svg"
+      }]
     },
     "views": {
-      "leekFundMenu": [
-        {
+      "leekFundMenu": [{
           "id": "leekFundView.fund",
           "name": "Fund"
         },
@@ -73,13 +70,20 @@
         }
       ]
     },
-    "commands": [
-      {
+    "commands": [{
         "command": "leek-fund.viewFundRank",
         "title": "基金排行榜",
         "icon": {
           "light": "resources/light/rank.svg",
           "dark": "resources/dark/rank.svg"
+        }
+      },
+      {
+        "command": "leek-fund.viewFundStock",
+        "title": "基金持仓统计",
+        "icon": {
+          "light": "resources/light/count.svg",
+          "dark": "resources/dark/count.svg"
         }
       },
       {
@@ -268,9 +272,13 @@
       }
     ],
     "menus": {
-      "view/title": [
-        {
+      "view/title": [{
           "command": "leek-fund.viewFundTrend",
+          "when": "view == leekFundView.fund",
+          "group": "navigation"
+        },
+        {
+          "command": "leek-fund.viewFundStock",
           "when": "view == leekFundView.fund",
           "group": "navigation"
         },
@@ -355,8 +363,7 @@
           "group": "navigation"
         }
       ],
-      "view/item/context": [
-        {
+      "view/item/context": [{
           "command": "leek-fund.viewFundHistory",
           "when": "view == leekFundView.fund",
           "group": "group2"
@@ -458,6 +465,40 @@
             "005963"
           ],
           "description": "配置需要监控的基金代码（建议通过界面新增）"
+        },
+        "leek-fund.starFunds": {
+          "type": "array",
+          "default": [
+            "0P0000P5UD",
+            "0P0000ZEAH",
+            "0P00013WJV",
+            "0P0001696E",
+            "0P00016WFU",
+            "0P00018J2K",
+            "F0000003WF",
+            "F0000003X2",
+            "F0000003XA",
+            "F0000003YD",
+            "F0000003YF",
+            "F00000041U",
+            "F0000004AI",
+            "F0000004JE",
+            "F020002001",
+            "0P00012MO2",
+            "0P000172IG",
+            "0P0000WEF3",
+            "0P0000YR3Y",
+            "F0000004I6",
+            "0P00012HDE",
+            "F020260101",
+            "0P000176PX"
+          ],
+          "description": "晨星基金代码"
+        },
+        "leek-fund.starFundsSort": {
+          "type": "string",
+          "default": "white",
+          "description": "基金持仓排序"
         },
         "leek-fund.binance": {
           "type": "array",
@@ -573,8 +614,7 @@
         }
       }
     },
-    "viewsWelcome": [
-      {
+    "viewsWelcome": [{
         "view": "leekFundView.fund",
         "contents": "无数据，请检查网络或添加基金"
       },

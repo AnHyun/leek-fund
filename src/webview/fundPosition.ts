@@ -13,7 +13,6 @@ async function getFundPositionByCode(code: string) {
     const response = await Axios.get(fundPositionUrl(code), {
       headers: randHeader(),
     });
-
     let data = response.data.slice(12, -1);
     data = data
       .replace('content', '"content"')

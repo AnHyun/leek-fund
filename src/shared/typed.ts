@@ -93,3 +93,11 @@ export interface ProfitStatusBarInfo {
   fundAmount: number;
   priceDate: string;
 }
+
+export interface StockHoldings {
+  Symbol: string;
+  HoldingName: string;
+  MarketValue: number;
+  Percent: number;
+  Counts: number;
+}

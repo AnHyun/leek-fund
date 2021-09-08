@@ -28,6 +28,7 @@ import setAmount from './webview/setAmount';
 import stockTrend from './webview/stockTrend';
 import stockTrendPic from './webview/stockTrendPic';
 import tucaoForum from './webview/tucaoForum';
+import fundStock from './webview/fundStock';
 
 export function registerViewEvent(
   context: ExtensionContext,
@@ -177,6 +178,8 @@ export function registerViewEvent(
   commands.registerCommand('leek-fund.viewFundHistory', (item) => fundHistory(item));
   // 基金持仓
   commands.registerCommand('leek-fund.viewFundPosition', (item) => fundPosition(item));
+  // 基金持仓统计
+  commands.registerCommand('leek-fund.viewFundStock', (item) => fundStock());
   // 基金排行
   commands.registerCommand('leek-fund.viewFundRank', () => fundRank());
   // 基金走势图
