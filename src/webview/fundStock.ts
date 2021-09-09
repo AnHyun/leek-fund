@@ -91,7 +91,8 @@ async function fundStock() {
     <head>
     <style type="text/css">
         table.gridtable {
-            width: 100%;
+            width: 90%;
+            margin: 0 auto;
             font-family: verdana,arial,sans-serif;
             font-size:12px;
             color:#333333;
