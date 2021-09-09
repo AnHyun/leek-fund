@@ -39,14 +39,17 @@
   "main": "./out/extension.js",
   "contributes": {
     "viewsContainers": {
-      "activitybar": [{
-        "id": "leekFundMenu",
-        "title": "LeekFund",
-        "icon": "resources/leekfund.svg"
-      }]
+      "activitybar": [
+        {
+          "id": "leekFundMenu",
+          "title": "LeekFund",
+          "icon": "resources/leekfund.svg"
+        }
+      ]
     },
     "views": {
-      "leekFundMenu": [{
+      "leekFundMenu": [
+        {
           "id": "leekFundView.fund",
           "name": "Fund"
         },
@@ -70,7 +73,8 @@
         }
       ]
     },
-    "commands": [{
+    "commands": [
+      {
         "command": "leek-fund.viewFundRank",
         "title": "基金排行榜",
         "icon": {
@@ -272,7 +276,8 @@
       }
     ],
     "menus": {
-      "view/title": [{
+      "view/title": [
+        {
           "command": "leek-fund.viewFundTrend",
           "when": "view == leekFundView.fund",
           "group": "navigation"
@@ -363,7 +368,8 @@
           "group": "navigation"
         }
       ],
-      "view/item/context": [{
+      "view/item/context": [
+        {
           "command": "leek-fund.viewFundHistory",
           "when": "view == leekFundView.fund",
           "group": "group2"
@@ -614,7 +620,8 @@
         }
       }
     },
-    "viewsWelcome": [{
+    "viewsWelcome": [
+      {
         "view": "leekFundView.fund",
         "contents": "无数据，请检查网络或添加基金"
       },
@@ -685,12 +692,12 @@
     "mocha": "^7.1.2",
     "prettier": "^2.1.2",
     "typescript": "^3.8.3",
-    "vsce": "^1.78.0",
+    "vsce": "^1.97.0",
     "vscode-test": "^1.3.0"
   },
   "dependencies": {
     "amplitude": "^5.1.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.4",
     "compare-versions": "^3.6.0",
     "iconv-lite": "^0.6.2",
     "lodash.clonedeep": "^4.5.0",
