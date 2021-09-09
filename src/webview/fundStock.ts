@@ -45,13 +45,16 @@ async function fundStock() {
       prev.forEach((item: any) => {
         if (item.Symbol === temp[Symbol]) {
           item.Counts += 1;
-          item.MarketValue +=  MarketValue / 1000000;
-          item.Percent += Percent;
+          // 市值百万乘以权重占比
+          item.MarketValue +=  MarketValue * (1 / fundCodes.length) / 1000000;
+          item.Percent += Percent * (1 / fundCodes.length);
         }
       });
     } else {
       curr.Counts = 1;
-      curr.MarketValue =  MarketValue / 1000000;
+      // 乘以权重占比
+      curr.MarketValue =  MarketValue * (1 / fundCodes.length) / 1000000;
+      curr.Percent =  Percent * (1 / fundCodes.length);
       temp[Symbol] = Symbol;
       prev.push(curr);
     }
@@ -119,7 +122,7 @@ async function fundStock() {
     </div>
     <table class="gridtable">
         <tr>
-            <th>序号</th><th>股票名称</th><th>股票代码</th><th>市值(百万)</th><th>占净资产%</th><th>持股基金数</th>
+            <th>序号</th><th>股票名称</th><th>股票代码</th><th>市值(百万)</th><th>占净资产%(平均权重)</th><th>持股基金数</th>
         </tr>
         ${content}
     </table>

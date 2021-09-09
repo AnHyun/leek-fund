@@ -24,7 +24,7 @@
     "币安",
     "vscode"
   ],
-  "publisher": "giscafer",
+  "publisher": "AnHyun",
   "icon": "resources/logo.png",
   "engines": {
     "vscode": "^1.44.0"
